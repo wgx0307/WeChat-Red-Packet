@@ -5,18 +5,18 @@ header("Content-type: text/html; charset=utf-8");
 class Common_util_pub
 {
     public function sendhongbaoto($arr){
-        $data['mch_id'] = '1339371601'; //商户id   比rand()快4倍  短信发送
-        $data['mch_billno'] = '1339371601'.date("YmdHis",time()).mt_rand(1111,9999);  //商户订单号 唯一性
+        $data['mch_id'] = '1234******'; //商户id
+        $data['mch_billno'] = '1234'.date("YmdHis",time()).mt_rand(1111,9999);  //商户订单号 唯一性
         $data['nonce_str'] = uniqid();  //随机字符串
         $data['re_openid'] = $arr['openid']; //红包接受者id
-        $data['wxappid'] = 'wx998482038f3d9c0c';
+        $data['wxappid'] = 'wx998482038f3d9***';
         $data['total_amount'] = $arr['fee']*100; //付款金额
-        $data['total_num'] = 3;  //发送红包个数
+        $data['total_num'] = 3;  //发送红包个数   最低为三个
         $data['nick_name'] = $arr['hbname']; //提供方名称
         $data['send_name'] = $arr['hbname'];//红包发送者名称
         $data['client_ip'] = $_SERVER['REMOTE_ADDR'];  //调用接口的ip地址
-        $data['act_name'] = '测试活动'; //活动名称
-        $data['remark'] = '备注一下'; //备注信息
+        $data['act_name'] = '测试'; //活动名称
+        $data['remark'] = '备注'; //备注信息
         $data['amt_type'] = 'ALL_RAND'; //金额随机
         $data['wishing'] = $arr['body'];//红包祝福语
         if(!$data['re_openid']){
